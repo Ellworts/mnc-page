@@ -1,0 +1,99 @@
+.Header {
+  position: fixed;
+  justify-content: space-between;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 5px;
+  height: 30px;
+
+  &-menu {
+    display: flex;
+    height: 100%;
+    padding-left: 10px;
+
+    a {
+      height: 100%;
+      display: flex;
+      filter: invert(100%);
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &-menu-options {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &.open {
+      left: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+      text-align: center;
+
+      &:hover {
+        background-color: #555;
+      }
+    }
+  }
+
+  &-registration {
+    a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: all 0.2s;
+      position: relative;
+
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: width 0.3s ease;
+      }
+
+    }
+  }
+}
