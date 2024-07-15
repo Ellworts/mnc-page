@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  
+
   &-logo {
     height: 40vmin;
     pointer-events: none;
@@ -16,7 +16,7 @@
     font-size: calc(10px + 2vmin);
     color: white;
   }
-  
+
   &-link {
     color: #61dafb;
   }
@@ -33,6 +33,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

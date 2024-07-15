@@ -5,7 +5,7 @@ function TopBar() {
   return (
     <div className="top-bar">
       <div className="top-bar-logo">
-        <h1>Мой сайт</h1>
+        <h1>говно</h1>
       </div>
       <div className="top-bar-menu">
         <a href="#menus">Our Menus</a>
