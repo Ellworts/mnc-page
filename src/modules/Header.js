@@ -14,7 +14,7 @@ function Header() {
   };
 
   return (
-    <div className="Header">
+    <nav className="Header">
       <div className="Header-menu">
         <a href="#home" onClick={toggleMenu}>
           <img src={MenuIcon} alt="Menu Icon" />
@@ -25,12 +25,13 @@ function Header() {
         <a href="#registration">Sign Up</a>
       </div>
       <div className={`Header-menu-options ${isMenuOpen ? 'open' : ''}`}>
-        <button className="close-btn" onClick={closeMenu}>Close</button>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact Us</a>
+        <button className="close-btn" onClick={closeMenu}>X</button>
+        <a href="#home">Home</a>
+        <a href="#book">Book</a>
+        <a href="#menus">Menus</a>
+        <a href="#offers">Offers</a>
       </div>
-    </div >
+    </nav>
   );
 }
 
