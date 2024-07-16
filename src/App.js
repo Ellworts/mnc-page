@@ -11,19 +11,23 @@ function App() {
     setShowRegistration(true);
   };
 
+  const handleCloseRegistration = () => {
+    setShowRegistration(false);
+  };
+
   return (
     <div className="App">
       <Header onSignUpClick={handleShowRegistration} />
       <div className="home-page">
         <div className="content">
-          {/* <div className="buttons"> */}
-            {/* <button className="register-btn" onClick={handleShowRegistration}>Register</button> */}
-          {/* </div> */}
+          <div className="buttons">
+            <button className="register-btn" onClick={handleShowRegistration}>Register</button>
+          </div>
           {showRegistration && (
             <div className="modal">
               <div className="modal-content">
-                <span className="close" onClick={() => setShowRegistration(false)}>&times;</span>
-                <RegistrationForm />
+                <span className="close" onClick={handleCloseRegistration}>&times;</span>
+                <RegistrationForm onClose={handleCloseRegistration} />
               </div>
             </div>
           )}

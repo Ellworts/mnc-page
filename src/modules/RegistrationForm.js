@@ -1,7 +1,8 @@
+// RegistrationForm.js
 import React, { useState } from 'react';
 import './RegistrationForm.scss';
 
-function RegistrationForm() {
+function RegistrationForm({ onClose }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
@@ -14,11 +15,16 @@ function RegistrationForm() {
     // Clear the form
     setUsername('');
     setPassword('');
+    // Optionally close the registration form upon successful registration
+    onClose();
   };
 
   return (
     <div className="registration-form">
-      <h2>Register</h2>
+      <div className="registration-header">
+        <span className="close" onClick={onClose}>&times;</span>
+        <h2>Register</h2>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
