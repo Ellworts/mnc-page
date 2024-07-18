@@ -1,10 +1,11 @@
-import './App.scss';
 import TopBar from './modules/Header';
+import Tagline from './modules/Tagline';
 
 function App() {
   return (
     <div className="App">
-       <TopBar />
+      <TopBar />
+      <Tagline />
     </div>
   );
 }

@@ -1,8 +1,9 @@
+// Header.js
 import React, { useState } from 'react';
 import './Header.scss';
 import MenuIcon from '../media/svg/menu-svgrepo-com.svg';
 
-function Header() {
+function Header({ onSignUpClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -14,24 +15,22 @@ function Header() {
   };
 
   return (
-    <nav className="Header">
+    <div className="Header">
       <div className="Header-menu">
         <a href="#home" onClick={toggleMenu}>
           <img src={MenuIcon} alt="Menu Icon" />
         </a>
       </div>
-      <div className="Header-registration">
-        <a href="#registration">Sign In</a>
-        <a href="#registration">Sign Up</a>
+      <div className={'Header-registration'}>
+        <a href="#registration" onClick={onSignUpClick}>Sign Up</a>
       </div>
       <div className={`Header-menu-options ${isMenuOpen ? 'open' : ''}`}>
-        <button className="close-btn" onClick={closeMenu}>X</button>
-        <a href="#home">Home</a>
-        <a href="#book">Book</a>
-        <a href="#menus">Menus</a>
-        <a href="#offers">Offers</a>
+        <button className="close-btn" onClick={closeMenu}>Close</button>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact Us</a>
       </div>
-    </nav>
+    </div>
   );
 }
 

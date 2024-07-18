@@ -1,0 +1,56 @@
+.tagline {
+  height: 800px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  padding: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &-bull-logo {
+    margin-bottom: 20px;
+    filter: invert(100%);
+
+    img {
+      max-width: 147px;
+      max-height: 137px;
+      height: auto;
+    }
+  }
+
+  &-text {
+    h1 {
+      color: white;
+      font-family: 'Wix Made For Display', sans-serif;
+      font-weight: 900;
+      font-size: 60px;
+      line-height: 1.1em;
+      margin: 0 0 20px;
+    }
+  }
+
+  &-buttons {
+    margin-top: 20px;
+
+    a {
+      font-family: 'Old Standard TT', sans-serif;
+      font-size: 20px;
+      line-height: 1.5em;
+      display: inline-block;
+      text-decoration: none;
+      color: #A4161A;
+      background-color: #f0f0f0;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 30px;
+      transition: background-color 0.5s ease;
+
+      &:hover {
+        color: #f1f1f1;
+        background-color: #E5383B;
+      }
+    }
+  }
+}
