@@ -18,10 +18,10 @@ const BrieflySection = () => {
         <section>
           <div data-aos="fade-down" id="pic" className="section"></div>
         </section>
-        <section id="combined" className="section">
-          <h2 data-aos="fade-up"  id="briefly">Briefly</h2>
+        <section data-aos="fade-up" id="combined" className="section">
+          <h2 id="briefly">Briefly</h2>
           <div className="text-wrapper">
-            <h3 data-aos="fade-up" data-aos-duration="1000" id='info'>Miller&Carter isn’t just a steakhouse – it’s an experience. For the last four decades, we’ve been winning hearts through our unwavering dedication to steak.</h3>
+            <h3 id='info'>Miller&Carter isn’t just a steakhouse – it’s an experience. For the last four decades, we’ve been winning hearts through our unwavering dedication to steak.</h3>
           </div>
         </section>
       </main>
