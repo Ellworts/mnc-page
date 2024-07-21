@@ -1,3 +1,5 @@
+@import '../utils/variables.scss';
+
 .tagline {
   height: 800px;
   width: 100%;
@@ -22,7 +24,7 @@
 
   &-text {
     h1 {
-      color: white;
+      color: $text-color;
       font-family: 'Wix Made For Display', sans-serif;
       font-weight: 900;
       font-size: 60px;
@@ -40,16 +42,16 @@
       line-height: 1.5em;
       display: inline-block;
       text-decoration: none;
-      color: #A4161A;
-      background-color: #f0f0f0;
+      color: $button-text-color;
+      background-color: $button-background-color;
       padding: 10px 20px;
       margin: 0 10px;
       border-radius: 30px;
       transition: background-color 0.5s ease;
 
       &:hover {
-        color: #f1f1f1;
-        background-color: #E5383B;
+        color: $button-hover-text-color;
+        background-color: $button-hover-background-color;
       }
     }
   }

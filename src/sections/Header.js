@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Header.scss';
+import '../styles/main.scss';
 import MenuIcon from '../media/svg/menu-svgrepo-com.svg';
 
 function Header() {

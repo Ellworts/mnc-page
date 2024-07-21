@@ -1,8 +1,9 @@
 import React from "react";
 import BullLogo from '../media/svg/CowSilhouette.svg';
-import './Tagline.scss';
+import '../styles/main.scss';
 
 function Tagline() {
+
   return (
     <div className="tagline">
       <div className="tagline-bull-logo">
