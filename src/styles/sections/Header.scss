@@ -97,15 +97,19 @@
       }
     }
   }
-
   &-registration {
     padding: 0 20px 0 0;
-    a {
+    
+    a, button {
       color: $text-color;
       text-decoration: none;
       margin: 0 1rem;
       transition: all 0.2s;
       position: relative;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
 
       &:hover {
         &::after {
