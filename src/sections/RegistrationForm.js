@@ -1,4 +1,3 @@
-// RegistrationForm.js
 import React, { useState, useEffect } from 'react';
 import '../styles/main.scss';
 import * as XLSX from 'xlsx';
@@ -11,7 +10,6 @@ function RegistrationForm({ onClose }) {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    // Read existing data from localStorage
     const existingFile = localStorage.getItem('user_data');
     if (existingFile) {
       const workbook = XLSX.read(existingFile, { type: 'binary' });
@@ -25,22 +23,17 @@ function RegistrationForm({ onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Add the new user data
     const updatedUserData = [...userData, { Username: username, Password: password }];
 
-    // Create a new workbook and add the data to it
     const newWorkbook = XLSX.utils.book_new();
     const newWorksheet = XLSX.utils.json_to_sheet(updatedUserData);
     XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, 'Users');
 
-    // Convert the workbook to a binary string
     const wbout = XLSX.write(newWorkbook, { bookType: 'xlsx', type: 'binary' });
 
-    // Save the binary string to localStorage
     const reader = new FileReader();
     reader.onload = () => {
       localStorage.setItem('user_data', reader.result);
-      // Download the updated file
       const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
       saveAs(blob, 'user_data.xlsx');
 
@@ -69,23 +62,36 @@ function RegistrationForm({ onClose }) {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+          <div className="input-container">
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <span className="bottom"></span>
+            <span className="right"></span>
+            <span className="top"></span>
+            <span className="left"></span>
+          </div>
         </div>
+        
         <div className="form-group">
           <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="input-container">
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span className="bottom"></span>
+            <span className="right"></span>
+            <span className="top"></span>
+            <span className="left"></span>
+          </div>
         </div>
         <button type="submit">Register</button>
       </form>
