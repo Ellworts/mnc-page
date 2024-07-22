@@ -12,6 +12,23 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
+.message {
+  color: red;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.message ul {
+  padding-left: 20px;
+}
+
+.message li {
+  list-style-type: disc;
+}
+
 
 .modal-content {
   background-color: #fff;

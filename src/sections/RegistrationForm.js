@@ -1,56 +1,69 @@
-import React, { useState, useEffect } from 'react';
+// src/sections/RegistrationForm.js
+import React, { useState } from 'react';
+import axios from 'axios';
 import '../styles/main.scss';
-import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
 
 function RegistrationForm({ onClose }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [userData, setUserData] = useState([]);
+  const [message, setMessage] = useState([]);
 
-  useEffect(() => {
-    const existingFile = localStorage.getItem('user_data');
-    if (existingFile) {
-      const workbook = XLSX.read(existingFile, { type: 'binary' });
-      const firstSheetName = workbook.SheetNames[0];
-      const worksheet = workbook.Sheets[firstSheetName];
-      const existingData = XLSX.utils.sheet_to_json(worksheet);
-      setUserData(existingData);
+  const validateUsername = (username) => {
+    let errors = [];
+    if (username.length < 3) {
+      errors.push('Username must be at least 3 characters long.');
     }
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const updatedUserData = [...userData, { Username: username, Password: password }];
-
-    const newWorkbook = XLSX.utils.book_new();
-    const newWorksheet = XLSX.utils.json_to_sheet(updatedUserData);
-    XLSX.utils.book_append_sheet(newWorkbook, newWorksheet, 'Users');
-
-    const wbout = XLSX.write(newWorkbook, { bookType: 'xlsx', type: 'binary' });
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      localStorage.setItem('user_data', reader.result);
-      const blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
-      saveAs(blob, 'user_data.xlsx');
-
-      setMessage('Registration successful!');
-      setUsername('');
-      setPassword('');
-      setUserData(updatedUserData);
-      onClose();
-    };
-    reader.readAsBinaryString(new Blob([s2ab(wbout)], { type: 'application/octet-stream' }));
+    if (/[^a-zA-Z0-9]/.test(username)) {
+      errors.push('Username must contain only letters and numbers.');
+    }
+    return errors;
   };
 
-  const s2ab = (s) => {
-    const buf = new ArrayBuffer(s.length);
-    const view = new Uint8Array(buf);
-    for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
-    return buf;
+  const validatePassword = (password) => {
+    const minLength = 8;
+    const hasNumber = /\d/;
+    const hasUpperCase = /[A-Z]/;
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+    let errors = [];
+    if (password.length < minLength) {
+      errors.push('Password must be at least 8 characters long.');
+    }
+    if (!hasNumber.test(password)) {
+      errors.push('Password must contain at least one number.');
+    }
+    if (!hasUpperCase.test(password)) {
+      errors.push('Password must contain at least one uppercase letter.');
+    }
+    if (!hasSpecialChar.test(password)) {
+      errors.push('Password must contain at least one special character.');
+    }
+    return errors;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const usernameErrors = validateUsername(username);
+    const passwordErrors = validatePassword(password);
+
+    if (usernameErrors.length > 0 || passwordErrors.length > 0) {
+      setMessage([...usernameErrors, ...passwordErrors]);
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:5000/register', {
+        username,
+        password,
+      });
+      setMessage([response.data.message]);
+      setUsername('');
+      setPassword('');
+      onClose();
+    } catch (error) {
+      setMessage([`Error: ${error.response.data.error}`]);
+    }
   };
 
   return (
@@ -76,7 +89,7 @@ function RegistrationForm({ onClose }) {
             <span className="left"></span>
           </div>
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <div className="input-container">
@@ -95,7 +108,15 @@ function RegistrationForm({ onClose }) {
         </div>
         <button type="submit">Register</button>
       </form>
-      {message && <p className="message">{message}</p>}
+      {message.length > 0 && (
+        <div className="message">
+          <ul>
+            {message.map((msg, index) => (
+              <li key={index}>{msg}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

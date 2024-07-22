@@ -4,7 +4,7 @@ import TopBar from './sections/Header';
 import Tagline from './sections/Tagline';
 import BrieflySection from './sections/Briefly';
 import RegistrationForm from './sections/RegistrationForm';
-import Footer from './sections/Footer'
+import Footer from './sections/Footer';
 import './App.scss';
 
 function App() {
