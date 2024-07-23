@@ -1,0 +1,185 @@
+@import '../utils/variables.scss';
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.message {
+  color: red;
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.message ul {
+  padding-left: 20px;
+}
+
+.message li {
+  list-style-type: disc;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.login-form, .registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form .form-group, .registration-form .form-group {
+  margin-bottom: 15px;
+}
+
+.login-form label, .registration-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-container {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.35em 0;
+  padding-left: 10px;
+  border: 0px solid #d6d6d6;
+  border-radius: 5px;
+  color: black;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: hsl(0, 0%, 95%);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
+.input-container input::placeholder {
+  color: hsla(0, 0%, 0%, 0.6);
+}
+
+.input-container .bottom,
+.input-container .right,
+.input-container .top,
+.input-container .left {
+  position: absolute;
+  background-color: #ff9e9e;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.input-container .bottom {
+  height: 1px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  bottom: 0;
+  transform-origin: bottom right;
+}
+
+.input-container .right {
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  transform: scaleY(0);
+  right: 0;
+  transform-origin: top right;
+}
+
+.input-container .top {
+  height: 1px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  top: 0;
+  transform-origin: top left;
+}
+
+.input-container .left {
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  transform: scaleY(0);
+  left: 0;
+  transform-origin: bottom left;
+}
+
+.input-container input:focus ~ .bottom {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+.input-container input:focus ~ .right {
+  transform-origin: bottom right;
+  transform: scaleY(1);
+}
+
+.input-container input:focus ~ .top {
+  transform-origin: top right;
+  transform: scaleX(1);
+}
+
+.input-container input:focus ~ .left {
+  transform-origin: top left;
+  transform: scaleY(1);
+}
+
+.login-form button, .registration-form button {
+  padding: 10px 15px;
+  font-family: "Cabin", sans-serif;
+  background-color: $button-text-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover, .registration-form button:hover {
+  background-color: $button-hover-background-color;
+}
+
+.login-header, .registration-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-header h2, .registration-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}

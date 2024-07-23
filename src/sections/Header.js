@@ -1,9 +1,8 @@
-// Header.js
 import React, { useState, useEffect } from 'react';
 import '../styles/main.scss';
 import MenuIcon from '../media/svg/menu-svgrepo-com.svg';
 
-function Header({ onSignUpClick }) {
+function Header({ onSignUpClick, onLoginClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -39,15 +38,15 @@ function Header({ onSignUpClick }) {
         </a>
       </div>
       <div className="Header-registration">
-        <a href="#sign-in">Sign In</a>
+        <a href="#sign-in" onClick={onLoginClick}>Sign In</a>
         <button onClick={onSignUpClick}>Sign Up</button>
       </div>
       <div className={`Header-menu-options ${isMenuOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={closeMenu}>X</button>
-        <a href="#home">Home</a>
-        <a href="#book">Book</a>
-        <a href="#menus">Menus</a>
-        <a href="#offers">Offers</a>
+        <a href="#home" onClick={closeMenu}>Home</a>
+        <a href="#book" onClick={closeMenu}>Book</a>
+        <a href="#menus" onClick={closeMenu}>Menus</a>
+        <a href="#offers" onClick={closeMenu}>Offers</a>
       </div>
     </nav>
   );

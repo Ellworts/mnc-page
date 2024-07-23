@@ -11,7 +11,10 @@ db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE NOT NULL,
-            password TEXT NOT NULL
+            password TEXT NOT NULL,
+            status TEXT NOT NULL,
+            registered_date TEXT NOT NULL,
+            last_logged_in TEXT
           )`);
   console.log('Users table created or already exists.');
 });
