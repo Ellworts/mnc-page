@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/main.scss';
 import MenuIcon from '../media/svg/menu-svgrepo-com.svg';
 
-function Header({ onSignUpClick, onLoginClick }) {
+function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLoginClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const dropdownRef = useRef(null);
+  const userRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -12,6 +16,24 @@ function Header({ onSignUpClick, onLoginClick }) {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleUserClick = () => {
+    setShowOptions(!showOptions);
+  };
+
+  const handleDeleteAccountClick = () => {
+    setShowConfirmation(true);
+  };
+
+  const confirmDeleteAccount = () => {
+    onDeleteAccount();
+    setShowConfirmation(false);
+    onLogout();
+  };
+
+  const cancelDeleteAccount = () => {
+    setShowConfirmation(false);
   };
 
   useEffect(() => {
@@ -23,10 +45,18 @@ function Header({ onSignUpClick, onLoginClick }) {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !userRef.current.contains(event.target)) {
+        setShowOptions(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -38,9 +68,34 @@ function Header({ onSignUpClick, onLoginClick }) {
         </a>
       </div>
       <div className="Header-registration">
-        <a href="#sign-in" onClick={onLoginClick}>Sign In</a>
-        <button onClick={onSignUpClick}>Sign Up</button>
+        {user ? (
+          <div className="user-section">
+            <span className={`username ${showOptions ? 'active' : ''}`} onClick={handleUserClick} ref={userRef}>
+              {user}
+              <span className="status">({status})</span>
+            </span>
+            <div className={`dropdown-menu ${showOptions ? 'show' : ''}`} ref={dropdownRef}>
+              <button onClick={() => alert('Profile Clicked!')}>Profile</button>
+              <button onClick={onLogout}>Sign Out</button>
+              <button onClick={handleDeleteAccountClick}>Delete Account</button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <a href="#sign-in" onClick={onLoginClick}>Sign In</a>
+            <button onClick={onSignUpClick}>Sign Up</button>
+          </>
+        )}
       </div>
+      {showConfirmation && (
+        <div className="confirmation-dialog">
+          <div className="confirmation-content">
+            <p>Are you sure you want to delete your account?</p>
+            <button onClick={confirmDeleteAccount}>Yes</button>
+            <button onClick={cancelDeleteAccount}>Cancel</button>
+          </div>
+        </div>
+      )}
       <div className={`Header-menu-options ${isMenuOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={closeMenu}>X</button>
         <a href="#home" onClick={closeMenu}>Home</a>

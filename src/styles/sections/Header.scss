@@ -120,14 +120,119 @@
         right: 0;
         height: 2px;
         background-color: #ffffff;
-        transform-origin: bottom right;
+        transform-origin: bottom left;
         transform: scaleX(0);
         transition: transform 0.5s ease;
       }
 
       &:hover::before {
-        transform-origin: bottom left;
         transform: scaleX(1);
+      }
+    }
+
+    .user-section {
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: white;
+
+      .username {
+        cursor: pointer;
+        margin-right: 1rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+
+        &:hover + .dropdown-menu, &.active + .dropdown-menu {
+          display: block;
+        }
+      }
+
+      .status {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+        color: #ccc; // Light grey for status
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 2rem;
+        right: 0;
+        background: grey; // Set background color to grey
+        color: white; // Set text color to white
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        min-width: 150px;
+        border-radius: 5px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        &.show {
+          display: block;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        button {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          border: none;
+          background: none;
+          text-align: left;
+          color: white; // Set text color to white
+          cursor: pointer;
+
+          &:hover {
+            background: #555; // Darker grey on hover
+          }
+        }
+      }
+    }
+  }
+}
+
+.confirmation-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; // Ensure it's above other elements
+
+  .confirmation-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+
+      &:first-child {
+        background: red;
+        color: white;
+      }
+
+      &:last-child {
+        background: grey;
+        color: white;
       }
     }
   }

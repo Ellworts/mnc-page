@@ -45,6 +45,19 @@ app.post('/login', (req, res) => {
   });
 });
 
+app.delete('/deleteAccount', (req, res) => {
+  console.log('Received DELETE request for account deletion'); // Log the request
+  const { username } = req.body;
+  console.log(`Username to delete: ${username}`); // Log the username
+  const query = `DELETE FROM users WHERE username = ?`;
+  db.run(query, [username], (err) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    res.json({ message: 'Account deleted successfully!' });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
