@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.13aa5447.css",
+    "main.js": "/static/js/main.a1f36915.js",
+    "static/js/453.0ab489a9.chunk.js": "/static/js/453.0ab489a9.chunk.js",
+    "static/media/squiggle-2.png": "/static/media/squiggle-2.b0afd2c665c488c731af.png",
+    "static/media/squiggle-17.png": "/static/media/squiggle-17.6248e0d970e953f59080.png",
+    "static/media/miller_carter_logo.png": "/static/media/miller_carter_logo.20b83895d22726c3089c.png",
+    "static/media/CowSilhouette.svg": "/static/media/CowSilhouette.6400b489b03574462b357d968da7a281.svg",
+    "index.html": "/index.html",
+    "static/media/menu-svgrepo-com.svg": "/static/media/menu-svgrepo-com.d6571c4002d6c3c1284609758b82be20.svg",
+    "main.13aa5447.css.map": "/static/css/main.13aa5447.css.map",
+    "main.a1f36915.js.map": "/static/js/main.a1f36915.js.map",
+    "453.0ab489a9.chunk.js.map": "/static/js/453.0ab489a9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13aa5447.css",
+    "static/js/main.a1f36915.js"
+  ]
+}
