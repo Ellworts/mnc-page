@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/main.scss';
-import logo from '../media/png/miller_carter_logo.png'; // Убедитесь, что путь правильный
+import logo from '../media/png/miller_carter_logo.png';
 
 const Footer = () => {
   return (

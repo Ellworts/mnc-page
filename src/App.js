@@ -5,8 +5,8 @@ import Tagline from './sections/Tagline';
 import BrieflySection from './sections/Briefly';
 import RegistrationForm from './sections/RegistrationForm';
 import LoginForm from './sections/LoginForm';
+import TaleSection from './sections/TaleSection';
 import Footer from './sections/Footer';
-import './App.scss';
 
 function App() {
   const [showRegistration, setShowRegistration] = useState(false);
@@ -37,9 +37,6 @@ function App() {
 
   return (
     <div className="App">
-      <TopBar onSignUpClick={handleShowRegistration} onLoginClick={handleShowLogin} />
-      <Tagline />
-      <BrieflySection />
       {showRegistration && (
         <div className="modal">
           <div className="modal-content">
@@ -56,6 +53,10 @@ function App() {
           </div>
         </div>
       )}
+      <TopBar onSignUpClick={handleShowRegistration} onLoginClick={handleShowLogin} />
+      <Tagline />
+      <BrieflySection />
+      <TaleSection />
       <Footer />
     </div>
   );

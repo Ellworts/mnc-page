@@ -68,7 +68,7 @@
 
   @media (max-width: 810px) {
     grid-template-columns: 1fr;
-    padding: 60px 20px;
+    padding: $section-padding-mobile;
 
     #pic,
     #combined {
@@ -82,7 +82,7 @@
 
   @media (min-width: 810px) and (max-width: 1199px) {
     grid-template-columns: 1fr 1fr;
-    padding: 80px 40px;
+    padding: $section-padding-tablet;
 
     #pic {
       grid-column: 1;
