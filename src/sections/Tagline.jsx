@@ -5,7 +5,7 @@ import '../styles/main.scss';
 function Tagline() {
 
   return (
-    <div className="tagline">
+    <div data-aos="zoom-in" className="tagline">
       <div className="tagline-bull-logo">
         <img src={BullLogo} alt="bullLogo"></img>
       </div>
