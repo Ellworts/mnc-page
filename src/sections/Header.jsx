@@ -83,7 +83,7 @@ function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLogi
         ) : (
           <>
             <a href="#sign-in" onClick={onLoginClick}>Sign In</a>
-            <button onClick={onSignUpClick}>Sign Up</button>
+            <button className="button" onClick={onSignUpClick}>Sign Up</button>
           </>
         )}
       </div>

@@ -1,0 +1,121 @@
+.ourCraft-section {
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: $section-padding;
+  height: 100vh;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: $section-padding-tablet;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $section-padding-mobile;
+  }
+}
+
+.grid-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 60px;
+  width: 100%;
+  min-width: 50px;
+  max-width: 1000px;
+  height: 100%;
+
+  align-items: center;
+
+  @media (max-width: 500px) {
+    gap: 20px;
+  }
+}
+
+.grid-img,
+.grid-img-1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: $background-color;
+  background-blend-mode: luminosity;
+  transition: transform 0.5s ease;
+
+  @media (max-width: 500px) {
+    height: 50%;
+    width: 100%;
+  }
+}
+
+.grid-img {
+  background-image: url('../../media/png/OurCraft-1.png');
+  filter: drop-shadow(-20px 20px 20px rgba(0, 0, 0, 0.75));
+  animation: rotateIn 10s ease-in-out infinite;
+}
+
+.grid-img-1 {
+  background-image: url('../../media/png/OurCraft-2.png');
+  box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.75);
+  animation: rotateIn-1 10s ease-in-out infinite;
+}
+
+.grid-container-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-item {
+  color: white;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.headline {
+  font-family: 'Wix Made For Display', sans-serif;
+  font-size: clamp(1rem, 5vw, 32px);
+  font-weight: 800;
+  line-height: 1.2em;
+}
+
+.description {
+  font-family: 'Old Standard TT', sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1.5em;
+  max-width: 400px;
+}
+
+@keyframes rotateIn {
+  0% {
+    transform: rotateX(-4deg) rotateY(25deg) rotateZ(2deg);
+  }
+
+  50% {
+    transform: rotateX(-4deg) rotateY(0deg) rotateZ(2deg);
+  }
+
+  100% {
+    transform: rotateX(-4deg) rotateY(25deg) rotateZ(2deg);
+  }
+}
+
+@keyframes rotateIn-1 {
+  0% {
+    transform: rotateX(-5deg) rotateY(-25deg) rotateZ(-2deg);
+  }
+
+  50% {
+    transform: rotateX(-5deg) rotateY(0deg) rotateZ(-2deg);
+  }
+
+  100% {
+    transform: rotateX(-5deg) rotateY(-25deg) rotateZ(-2deg);
+  }
+}

@@ -8,6 +8,7 @@ import RegistrationForm from './sections/RegistrationForm';
 import LoginForm from './sections/LoginForm';
 import TaleSection from './sections/TaleSection';
 import Footer from './sections/Footer';
+import OurCraft from './sections/OurCraft';
 
 function App() {
   const [showRegistration, setShowRegistration] = useState(false);
@@ -113,6 +114,7 @@ function App() {
       <Tagline />
       <BrieflySection />
       <TaleSection />
+      <OurCraft />
       <Footer />
     </div>
   );
