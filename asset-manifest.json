@@ -1,20 +1,34 @@
 {
   "files": {
-    "main.css": "./static/css/main.bce5e831.css",
-    "main.js": "./static/js/main.839a2b83.js",
+    "main.css": "./static/css/main.fe3ff97c.css",
+    "main.js": "./static/js/main.44c9f69a.js",
     "static/js/453.0ab489a9.chunk.js": "./static/js/453.0ab489a9.chunk.js",
     "static/media/squiggle-2.png": "./static/media/squiggle-2.b0afd2c665c488c731af.png",
+    "static/media/OldStandardTT-Italic.ttf": "./static/media/OldStandardTT-Italic.7ffe10d3c9220e1d4207.ttf",
+    "static/media/OldStandardTT-Bold.ttf": "./static/media/OldStandardTT-Bold.5d8bf676686d649be60b.ttf",
+    "static/media/OldStandardTT-Regular.ttf": "./static/media/OldStandardTT-Regular.cf7d4d01f58c621920a4.ttf",
+    "static/media/OurCraft-1.png": "./static/media/OurCraft-1.7ba70ce0af6c33400baa.png",
+    "static/media/OurCraft-2.png": "./static/media/OurCraft-2.d50edb44fd54b7e709b7.png",
+    "static/media/WixMadeforDisplay-ExtraBold.ttf": "./static/media/WixMadeforDisplay-ExtraBold.fdedb583953f34272a91.ttf",
+    "static/media/WixMadeforDisplay-Medium.ttf": "./static/media/WixMadeforDisplay-Medium.f0a5743d792f1f10a366.ttf",
+    "static/media/WixMadeforDisplay-SemiBold.ttf": "./static/media/WixMadeforDisplay-SemiBold.d6e8e137fef2566145c9.ttf",
+    "static/media/WixMadeforDisplay-Bold.ttf": "./static/media/WixMadeforDisplay-Bold.6ddb73837792347bf1c4.ttf",
+    "static/media/WixMadeforDisplay-Regular.ttf": "./static/media/WixMadeforDisplay-Regular.82931d083136e5cc4215.ttf",
+    "static/media/Cabin-Regular.ttf": "./static/media/Cabin-Regular.cad64ef2209de4aec6e4.ttf",
+    "static/media/Cabin-Bold.ttf": "./static/media/Cabin-Bold.1037303a4414c2df784d.ttf",
+    "static/media/Cabin-Italic.ttf": "./static/media/Cabin-Italic.09b76dc65a349d617f5a.ttf",
+    "static/media/Cabin-BoldItalic.ttf": "./static/media/Cabin-BoldItalic.054003568dda0395b664.ttf",
     "static/media/squiggle-17.png": "./static/media/squiggle-17.6248e0d970e953f59080.png",
     "static/media/miller_carter_logo.png": "./static/media/miller_carter_logo.20b83895d22726c3089c.png",
     "static/media/CowSilhouette.svg": "./static/media/CowSilhouette.6400b489b03574462b357d968da7a281.svg",
-    "index.html": "./index.html",
     "static/media/menu-svgrepo-com.svg": "./static/media/menu-svgrepo-com.d6571c4002d6c3c1284609758b82be20.svg",
-    "main.bce5e831.css.map": "./static/css/main.bce5e831.css.map",
-    "main.839a2b83.js.map": "./static/js/main.839a2b83.js.map",
+    "index.html": "./index.html",
+    "main.fe3ff97c.css.map": "./static/css/main.fe3ff97c.css.map",
+    "main.44c9f69a.js.map": "./static/js/main.44c9f69a.js.map",
     "453.0ab489a9.chunk.js.map": "./static/js/453.0ab489a9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bce5e831.css",
-    "static/js/main.839a2b83.js"
+    "static/css/main.fe3ff97c.css",
+    "static/js/main.44c9f69a.js"
   ]
 }
