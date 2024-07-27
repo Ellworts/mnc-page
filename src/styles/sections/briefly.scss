@@ -22,8 +22,11 @@
 
   #pic {
     height: 200px;
+    width: 190px;
     background-image: url('../../media/png/squiggle-17.png');
     background-repeat: no-repeat;
+    filter: drop-shadow(7px 5px);
+    animation: rotate360deg 10s ease-in-out infinite;
   }
 
   #briefly {
@@ -31,7 +34,6 @@
     font-weight: 800;
     color: $briefly-text-color;
     line-height: 1.2em;
-    font-size: 27px;
     margin-bottom: 20px;
   }
 
@@ -102,5 +104,15 @@
     #briefly {
       font-size: 48px;
     }
+  }
+}
+
+@keyframes rotate360deg {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
   }
 }
