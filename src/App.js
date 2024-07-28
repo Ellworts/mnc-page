@@ -1,5 +1,7 @@
 // src/App.js
 import React, { useState, useEffect, useRef } from 'react';
+import './styles/main.scss';
+import './styles/sections/ReviewList.scss';
 import axios from 'axios';
 import TopBar from './sections/Header';
 import Tagline from './sections/Tagline';
@@ -9,10 +11,14 @@ import LoginForm from './sections/LoginForm';
 import TaleSection from './sections/TaleSection';
 import Footer from './sections/Footer';
 import OurCraft from './sections/OurCraft';
+import ReviewForm from './sections/ReviewSec';
+import ReviewList from './sections/ReviewList';
+
 
 function App() {
   const [showRegistration, setShowRegistration] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showReviewForm, setShowReviewForm] = useState(false);
   const [user, setUser] = useState(null);
   const [status, setStatus] = useState(null);
   const registrationRef = useRef(null);
@@ -61,6 +67,18 @@ function App() {
     setShowLogin(false);
   };
 
+  const handleShowReviewForm = () => {
+    if (user) {
+      setShowReviewForm(true);
+    } else {
+      alert('Please log in to submit a review.');
+    }
+  };
+
+  const handleCloseReviewForm = () => {
+    setShowReviewForm(false);
+  };
+
   const handleLogin = (username, status) => {
     setUser(username);
     setStatus(status);
@@ -103,18 +121,28 @@ function App() {
           </div>
         </div>
       )}
+      {showReviewForm && (
+        <div className="modal">
+          <div className="modal-content" ref={registrationRef}>
+            <span className="close" onClick={handleCloseReviewForm}>&times;</span>
+            <ReviewForm onClose={handleCloseReviewForm} />
+          </div>
+        </div>
+      )}
       <TopBar 
         user={user} 
         status={status} 
         onLogout={handleLogout} 
         onDeleteAccount={handleDeleteAccount} 
         onSignUpClick={handleShowRegistration} 
-        onLoginClick={handleShowLogin} 
+        onLoginClick={handleShowLogin}
+        onReviewClick={handleShowReviewForm}
       />
       <Tagline />
       <BrieflySection />
       <TaleSection />
       <OurCraft />
+      <ReviewList />
       <Footer />
     </div>
   );

@@ -1,4 +1,3 @@
-// src/user-registration/Create_db.js
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./src/user-registration/users.db', (err) => {
   if (err) {
@@ -17,6 +16,15 @@ db.serialize(() => {
             last_logged_in TEXT
           )`);
   console.log('Users table created or already exists.');
+
+  db.run(`CREATE TABLE IF NOT EXISTS reviews (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            review TEXT NOT NULL,
+            date TEXT NOT NULL,
+            FOREIGN KEY(username) REFERENCES users(username)
+          )`);
+  console.log('Reviews table created or already exists.');
 });
 
 db.close((err) => {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../styles/main.scss';
 import MenuIcon from '../media/svg/menu-svgrepo-com.svg';
 
-function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLoginClick }) {
+function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLoginClick, onReviewClick }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
@@ -78,6 +78,7 @@ function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLogi
               <button onClick={() => alert('Profile Clicked!')}>Profile</button>
               <button onClick={onLogout}>Sign Out</button>
               <button onClick={handleDeleteAccountClick}>Delete Account</button>
+              <button onClick={onReviewClick}>Submit Review</button>
             </div>
           </div>
         ) : (

@@ -1,0 +1,72 @@
+// src/styles/sections/ReviewList.scss
+
+.reviews-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #420000;
+    padding: 20px 0;
+    border-radius: 10px;
+  }
+  
+  .reviews-inner {
+    display: flex;
+    justify-content: center;
+    padding: 0; /* Remove padding to ensure the reviews span edge to edge */
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .review-slider {
+    display: flex;
+    animation: scroll 60s linear infinite; /* Continuous slow scrolling */
+    width: max-content;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% + 100vw));
+    }
+  }
+  
+  .review-card {
+    background: linear-gradient(to bottom, #5a0000, #420000);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 380px; /* Set fixed width */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    .review-text {
+      font-size: 1.1em;
+      margin-bottom: 15px;
+    }
+  
+    .review-author {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  
+    .review-author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0;
+  }
+  

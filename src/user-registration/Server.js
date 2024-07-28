@@ -1,4 +1,3 @@
-// src/user-registration/server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -45,10 +44,43 @@ app.post('/login', (req, res) => {
   });
 });
 
+app.post('/reviews', (req, res) => {
+  const { username, review } = req.body;
+  const date = new Date().toLocaleString();
+  const query = `INSERT INTO reviews (username, review, date) VALUES (?, ?, ?)`;
+  db.run(query, [username, review, date], (err) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    res.json({ message: 'Review added successfully!' });
+  });
+});
+
+app.get('/reviews', (req, res) => {
+  const query = `SELECT id, username, review, date FROM reviews`;
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    res.json(rows);
+  });
+});
+
+app.delete('/reviews/:id', (req, res) => {
+  const { id } = req.params;
+  const query = `DELETE FROM reviews WHERE id = ?`;
+  db.run(query, [id], (err) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    res.json({ message: 'Review deleted successfully!' });
+  });
+});
+
 app.delete('/deleteAccount', (req, res) => {
-  console.log('Received DELETE request for account deletion'); // Log the request
+  console.log('Received DELETE request for account deletion');
   const { username } = req.body;
-  console.log(`Username to delete: ${username}`); // Log the username
+  console.log(`Username to delete: ${username}`);
   const query = `DELETE FROM users WHERE username = ?`;
   db.run(query, [username], (err) => {
     if (err) {
