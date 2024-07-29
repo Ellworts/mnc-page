@@ -1,8 +1,8 @@
-// src/sections/ReviewForm.jsx
+// src/sections/ReviewSec.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const ReviewForm = ({ onClose }) => {
+const ReviewForm = ({ onClose, onAddReview }) => {
   const [review, setReview] = useState('');
 
   const handleSubmit = async (e) => {
@@ -14,7 +14,8 @@ const ReviewForm = ({ onClose }) => {
     }
 
     try {
-      await axios.post('http://localhost:5000/reviews', { username, review });
+      const response = await axios.post('http://localhost:5000/reviews', { username, review });
+      onAddReview(response.data);
       alert('Review submitted successfully!');
       onClose();
     } catch (error) {

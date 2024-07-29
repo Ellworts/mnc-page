@@ -1,7 +1,5 @@
-// src/App.js
 import React, { useState, useEffect, useRef } from 'react';
 import './styles/main.scss';
-import './styles/sections/ReviewList.scss';
 import axios from 'axios';
 import TopBar from './sections/Header';
 import Tagline from './sections/Tagline';
@@ -14,15 +12,17 @@ import OurCraft from './sections/OurCraft';
 import ReviewForm from './sections/ReviewSec';
 import ReviewList from './sections/ReviewList';
 
-
 function App() {
   const [showRegistration, setShowRegistration] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [user, setUser] = useState(null);
   const [status, setStatus] = useState(null);
+  const [reviews, setReviews] = useState([]);
+
   const registrationRef = useRef(null);
   const loginRef = useRef(null);
+  const reviewFormRef = useRef(null);
 
   useEffect(() => {
     const savedUser = localStorage.getItem('user');
@@ -38,6 +38,9 @@ function App() {
       }
       if (loginRef.current && !loginRef.current.contains(event.target)) {
         setShowLogin(false);
+      }
+      if (reviewFormRef.current && !reviewFormRef.current.contains(event.target)) {
+        setShowReviewForm(false);
       }
     };
 
@@ -103,6 +106,10 @@ function App() {
     }
   };
 
+  const handleAddReview = (newReview) => {
+    setReviews([...reviews, newReview]);
+  };
+
   return (
     <div className="App">
       {showRegistration && (
@@ -123,9 +130,9 @@ function App() {
       )}
       {showReviewForm && (
         <div className="modal">
-          <div className="modal-content" ref={registrationRef}>
+          <div className="modal-content" ref={reviewFormRef}>
             <span className="close" onClick={handleCloseReviewForm}>&times;</span>
-            <ReviewForm onClose={handleCloseReviewForm} />
+            <ReviewForm onClose={handleCloseReviewForm} onAddReview={handleAddReview} />
           </div>
         </div>
       )}
@@ -142,7 +149,7 @@ function App() {
       <BrieflySection />
       <TaleSection />
       <OurCraft />
-      <ReviewList />
+      <ReviewList reviews={reviews} />
       <Footer />
     </div>
   );

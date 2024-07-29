@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../styles/main.scss';
 import MenuIcon from '../media/svg/menu-svgrepo-com.svg';
 
-function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLoginClick, onReviewClick }) {
+function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLoginClick, onReviewSubmit }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
   const dropdownRef = useRef(null);
   const userRef = useRef(null);
 
@@ -34,6 +35,19 @@ function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLogi
 
   const cancelDeleteAccount = () => {
     setShowConfirmation(false);
+  };
+
+  const handleReviewClick = () => {
+    setShowReviewModal(true);
+  };
+
+  const closeReviewModal = () => {
+    setShowReviewModal(false);
+  };
+
+  const handleReviewSubmit = (reviewText) => {
+    onReviewSubmit(reviewText);
+    closeReviewModal();
   };
 
   useEffect(() => {
@@ -78,7 +92,7 @@ function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLogi
               <button onClick={() => alert('Profile Clicked!')}>Profile</button>
               <button onClick={onLogout}>Sign Out</button>
               <button onClick={handleDeleteAccountClick}>Delete Account</button>
-              <button onClick={onReviewClick}>Submit Review</button>
+              <button onClick={handleReviewClick}>Submit Review</button>
             </div>
           </div>
         ) : (
@@ -94,6 +108,24 @@ function Header({ user, status, onLogout, onDeleteAccount, onSignUpClick, onLogi
             <p>Are you sure you want to delete your account?</p>
             <button onClick={confirmDeleteAccount}>Yes</button>
             <button onClick={cancelDeleteAccount}>Cancel</button>
+          </div>
+        </div>
+      )}
+      {showReviewModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeReviewModal}>&times;</span>
+            <h2>Submit a Review</h2>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              handleReviewSubmit(e.target.review.value);
+            }}>
+              <div className="form-group">
+                <label htmlFor="review">Review:</label>
+                <textarea id="review" name="review" required></textarea>
+              </div>
+              <button type="submit">Submit</button>
+            </form>
           </div>
         </div>
       )}
