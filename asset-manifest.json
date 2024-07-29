@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.fe3ff97c.css",
-    "main.js": "./static/js/main.44c9f69a.js",
+    "main.css": "./static/css/main.d7ec6a9f.css",
+    "main.js": "./static/js/main.b2111739.js",
     "static/js/453.0ab489a9.chunk.js": "./static/js/453.0ab489a9.chunk.js",
     "static/media/squiggle-2.png": "./static/media/squiggle-2.b0afd2c665c488c731af.png",
     "static/media/OldStandardTT-Italic.ttf": "./static/media/OldStandardTT-Italic.7ffe10d3c9220e1d4207.ttf",
@@ -18,17 +18,16 @@
     "static/media/Cabin-Bold.ttf": "./static/media/Cabin-Bold.1037303a4414c2df784d.ttf",
     "static/media/Cabin-Italic.ttf": "./static/media/Cabin-Italic.09b76dc65a349d617f5a.ttf",
     "static/media/Cabin-BoldItalic.ttf": "./static/media/Cabin-BoldItalic.054003568dda0395b664.ttf",
-    "static/media/squiggle-17.png": "./static/media/squiggle-17.6248e0d970e953f59080.png",
     "static/media/miller_carter_logo.png": "./static/media/miller_carter_logo.20b83895d22726c3089c.png",
     "static/media/CowSilhouette.svg": "./static/media/CowSilhouette.6400b489b03574462b357d968da7a281.svg",
     "static/media/menu-svgrepo-com.svg": "./static/media/menu-svgrepo-com.d6571c4002d6c3c1284609758b82be20.svg",
     "index.html": "./index.html",
-    "main.fe3ff97c.css.map": "./static/css/main.fe3ff97c.css.map",
-    "main.44c9f69a.js.map": "./static/js/main.44c9f69a.js.map",
+    "main.d7ec6a9f.css.map": "./static/css/main.d7ec6a9f.css.map",
+    "main.b2111739.js.map": "./static/js/main.b2111739.js.map",
     "453.0ab489a9.chunk.js.map": "./static/js/453.0ab489a9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe3ff97c.css",
-    "static/js/main.44c9f69a.js"
+    "static/css/main.d7ec6a9f.css",
+    "static/js/main.b2111739.js"
   ]
 }
