@@ -45,24 +45,28 @@
   background-position: center;
   background-color: $background-color;
   background-blend-mode: luminosity;
-  transition: transform 0.5s ease;
-
+  transition: all 0.5s ease;
   @media (max-width: 500px) {
     height: 50%;
     width: 100%;
   }
 }
 
+.grid-img:hover,
+.grid-img-1:hover {
+  scale: 1.02;
+}
+
 .grid-img {
   background-image: url('../../media/png/OurCraft-1.png');
   filter: drop-shadow(-20px 20px 20px rgba(0, 0, 0, 0.75));
-  animation: rotateIn 10s ease-in-out infinite;
+  animation: rotateIn 5s ease-in-out infinite;
 }
 
 .grid-img-1 {
   background-image: url('../../media/png/OurCraft-2.png');
   box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.75);
-  animation: rotateIn-1 10s ease-in-out infinite;
+  animation: rotateIn-1 5s ease-in-out infinite;
 }
 
 .grid-container-side {
@@ -94,28 +98,28 @@
 
 @keyframes rotateIn {
   0% {
-    transform: rotateX(-4deg) rotateY(25deg) rotateZ(2deg);
+    transform: rotateX(-4deg) rotateY(15deg);
   }
 
   50% {
-    transform: rotateX(-4deg) rotateY(0deg) rotateZ(2deg);
+    transform: rotateX(-4deg) rotateY(0deg);
   }
 
   100% {
-    transform: rotateX(-4deg) rotateY(25deg) rotateZ(2deg);
+    transform: rotateX(-4deg) rotateY(15deg);
   }
 }
 
 @keyframes rotateIn-1 {
   0% {
-    transform: rotateX(-5deg) rotateY(-25deg) rotateZ(-2deg);
+    transform: rotateX(-5deg) rotateY(-15deg);
   }
 
   50% {
-    transform: rotateX(-5deg) rotateY(0deg) rotateZ(-2deg);
+    transform: rotateX(-5deg) rotateY(0deg);
   }
 
   100% {
-    transform: rotateX(-5deg) rotateY(-25deg) rotateZ(-2deg);
+    transform: rotateX(-5deg) rotateY(-15deg);
   }
 }

@@ -26,7 +26,7 @@
     background-image: url('../../media/png/squiggle-17.png');
     background-repeat: no-repeat;
     filter: drop-shadow(7px 5px);
-    animation: rotate360deg 10s ease-in-out infinite;
+    animation: rotate180deg 10s linear infinite;
   }
 
   #briefly {
@@ -107,7 +107,7 @@
   }
 }
 
-@keyframes rotate360deg {
+@keyframes rotate180deg {
   0% {
     transform: rotateY(0deg);
   }
